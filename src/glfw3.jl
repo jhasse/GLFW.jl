@@ -461,6 +461,10 @@ SetCursorPos(window::Window, xpos::FloatingPoint, ypos::FloatingPoint) = ccall( 
 @Set CursorPosCallback(window::Window, xpos::Cdouble, ypos::Cdouble)
 @Set CursorEnterCallback(window::Window, entered::Cint)
 @Set ScrollCallback(window::Window, xoffset::Cdouble, yoffset::Cdouble)
+
+@Set DropCallback(window::Window, count::Cint, files::Ptr{Ptr{UInt8}})
+@Set CharModsCallback(window::Window, char::Cuint, modifier::Cint)
+
 JoystickPresent(joy::Integer) = bool(ccall( (:glfwJoystickPresent, lib), Cuint, (Cuint,), joy))
 
 function GetJoystickAxes(joy::Integer)
